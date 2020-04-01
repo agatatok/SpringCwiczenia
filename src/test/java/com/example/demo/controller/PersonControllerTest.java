@@ -36,6 +36,16 @@ class PersonControllerTest {
                 .andReturn();
 
         Person janKowalski = OBJECT_MAPPER.readValue(result.getResponse().getContentAsString(), Person.class);
-        assertEquals(new Person("Jan","Kowalski",30), janKowalski);
+        assertEquals(new Person(1L,"Jan","Kowalski"), janKowalski);
+    }
+
+    @Test
+    void shouldReturnError405_PUT() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .put("/person/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
     }
 }

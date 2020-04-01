@@ -9,6 +9,7 @@ import javax.persistence.Id;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
     @Id
@@ -18,6 +19,4 @@ public class Person {
     private String firstName;
     @NonNull
     private String lastName;
-    @NonNull
-    private int age;
 }
