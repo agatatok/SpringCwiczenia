@@ -19,5 +19,5 @@ public class Person {
     @NonNull
     private String lastName;
     @NonNull
-    private int wiek;
+    private int age;
 }
